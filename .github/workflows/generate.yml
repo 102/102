@@ -1,0 +1,28 @@
+name: generate
+
+on:
+  schedule:
+    - cron: "46 * * * *"
+
+runs:
+  using: "node12"
+  main: "generate.js"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+        with:
+          ref: master
+      - name: push
+        uses: github-actions-x/commit@v2.6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: "master"
+          commit-message: "publish"
+          force-add: "true"
+          files: a.txt b.txt c.txt dirA/ dirB/ dirC/a.txt
+          name: commiter name
+          email: my.github@email.com
