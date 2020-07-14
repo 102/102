@@ -1,7 +1,8 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
 %	The MIT License (MIT)
 %
-%	Copyright (c) 2015 Jan Küster
+%	Original template Copyright (c) 2015 Jan Küster
+% Template updates and content Copyright (c) 2020 Roman Gusev
 %
 %	Permission is hereby granted, free of charge, to any person obtaining a copy
 %	of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +29,7 @@
 %
 %============================================================================%
 
-%we use article class because we want to fully customize the page and dont use a cv template
+% we use article class because we want to fully customize the page and don't use a cv template
 \documentclass[10pt,A4]{article}	
 
 
@@ -36,7 +37,7 @@
 %	ENCODING
 %----------------------------------------------------------------------------------------
 
-%we use utf8 since we want to build from any machine
+% we use utf8 since we want to build from any machine
 \usepackage[utf8]{inputenc}		
 
 %----------------------------------------------------------------------------------------
@@ -44,7 +45,9 @@
 %----------------------------------------------------------------------------------------
 
 % provides \isempty test
-\usepackage{xifthen}
+% \usepackage{xifthen}
+
+\usepackage{hyperref}
 
 %----------------------------------------------------------------------------------------
 %	FONT
@@ -55,18 +58,18 @@
 %\usepackage[defaultsans]{droidsans}
 %\usepackage[default]{comfortaa}
 %\usepackage{cmbright}
-\usepackage[default]{raleway}
+%\usepackage[default]{raleway}
 %\usepackage{fetamont}
 %\usepackage[default]{gillius}
 %\usepackage[light,math]{iwona}
-%\usepackage[thin]{roboto} 
+\usepackage[thin]{roboto} 
 
 % set font default
 \renewcommand*\familydefault{\sfdefault} 	
 \usepackage[T1]{fontenc}
 
 % more font size definitions
-\usepackage{moresize}		
+\usepackage{moresize}
 
 
 %----------------------------------------------------------------------------------------
@@ -217,14 +220,14 @@
 	\end{center}
 }
 
-%create a coloured arrow with title as cv meta section section
+% create a coloured arrow with title as cv meta section section
 % param 1: meta section title
 %
 \newcommand{\metasection}[2]
 {
-%\begin{tabular*}{1\textwidth}{r r}
-\footnotesize{#2} \hspace*{\fill} \footnotesize{#1}\\[1pt]
-%\end{tabular*}
+  %\begin{tabular*}{1\textwidth}{r r}
+    \footnotesize{#2} \hspace*{\fill} \footnotesize{#1}\\[1pt]
+  %\end{tabular*}
 }
 
 %----------------------------------------------------------------------------------------
@@ -241,18 +244,16 @@
 %
 \newcommand{\cvevent}[5]
 {
+  \begin{tabular*}{1\textwidth}{p{13.6cm}  x{3.9cm}}
+  	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
+  \end{tabular*}
 
-\begin{tabular*}{1\textwidth}{p{13.6cm}  x{3.9cm}}
-	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
-\end{tabular*}
-
-\vspace{-8pt}
-\textcolor{softcol}{\hrule}
-\vspace{6pt}
+  \vspace{-8pt}
+    \textcolor{softcol}{\hrule}
+  \vspace{6pt}
 
   $\cdot$ #4\\[3pt]
   $\cdot$ #5\\[6pt]
-
 }
 
 % creates a stretched box as 
@@ -266,13 +267,6 @@
 % CUSTOM STRUT FOR EMPTY BOXES
 %----------------------------------------- -----------------------------------------------
 \newcommand{\mystrut}{\rule[-.3\baselineskip]{0pt}{\baselineskip}}
-
-%----------------------------------------------------------------------------------------
-% CUSTOM LOREM IPSUM
-%----------------------------------------------------------------------------------------
-\newcommand{\lorem}
-{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.}
-
 
 
 %============================================================================%
@@ -310,22 +304,18 @@
 %----------------------------------------------------------------------------------------
 \vspace{-8pt}
 \begin{center}
-	\HUGE \textsc{Jan Küster} \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} \textsc{Resume}\\[2pt]
-	\small Consultant and Software Developer
+	\huge \textsc{Roman Gusev} \textcolor{sectcol}{\rule[-1mm]{1mm}{0.75cm}} \textsc{Software Engineer}\\[2pt]
 \end{center}
 
-
-
 \vspace{6pt}
-
 
 %---------------------------------------------------------------------------------------
 %	META SECTION
 %----------------------------------------------------------------------------------------
-\metasection{Bremen, Germany}{\textbf{Status:} M.Sc. Digital Media, Scientific Employee}
-\metasection{www.jankuester.com}{\textbf{Fields:} Software Engineering, Consulting, Scrum, Usability} 
-\metasection{info@jankuester.com}{\textbf{Techs:} Meteor, Javascript, Mongo,. Bootstrap, Bash, Git, Webstorm}
-\metasection{+49 176 *** *** **}{\textbf{Activities:} Global Game Jam, Open Source, Fitness}
+\metasection{Omsk, Russia}{\textbf{Status:} B.Sc. Software Engineering, M.Sc. Education, Web Development Engineer}
+\metasection{rgusev2@gmail.com}{\textbf{Fields:} Software Engineering, Frontend Development, Backend Development, Scrum} 
+\metasection{\href{https://github.com/102}{GitHub: 102}}{\textbf{Techs:} JavaScript, TypeScript, Flow, React, Express, MongoDB, Python}
+%\metasection{\href{https://t.me/rgusev}{Telegram: rgusev}}{\textbf{}}
 \vspace{-2pt}
 \textcolor{softcol}{\hrule}
 \vspace{6pt}
@@ -337,8 +327,12 @@
 %----------------------------------------------------------------------------------------
 \vspace{-6pt}
 \cvsection{Summary}
-Digital media graduate with project experience in the field of technology based assessment. Currently working as IT Consultant at We4IT, Bremen in the field of IBM Notes Domino and XPages applications. Master studies focused on teams from different disciplines and cultural backgrounds on solutions for complex problems.\\
+\vspace{-6pt}
 
+Expert software engineer with specialization in web development.
+A lot of experience working with international teams in the agile environment.
+Special interests: working with the code as data (AST manipulations, linters, codemods) 
+ and breaking the obstacles between product and development parts of the team. 
 
 %============================================================================%
 %
@@ -350,51 +344,103 @@ Digital media graduate with project experience in the field of technology based 
 %	EXPERIENCE
 %----------------------------------------------------------------------------------------
 \cvsection{Experience}
-
-\cvevent{2016 - present}{Scientific Employee / PhD Student}{University of Bremen}{Develop and evaluate the next generation learning management system with Meteor}{Define a new level of software for classroom management based on an extensive nursing curriculum.}
+\vspace{-6pt}
 
 %
-\cvevent{2014 - 2016}{IT Consultant for IBM XPages and Notes Domino}{We4IT GmbH Bremen}{Realize projects in XPages and We4IT Aveedo, monitor project status, conduct reports}{Implement the frontend for a BPMN compatible engine within We4IT Aveedo}
+\cvevent{2020—}
+{Senior Developer}
+{\href{https://ssp-soft.com/en/}{SSP Software}}
+{Working on the large-scale web development projects}
+{Technologies used: TypeScript, React, Redux}
 
 %\textcolor{softcol}{\hrule}
 
 %
-\cvevent{2012 - 2014}{Scientific Employee / Software Development}{University of Bremen}{Invented a flexible assessment framework, targeting industrial trainees}{Supervised software development lifecycle, Recruited team members}
+\cvevent{2020—}
+{Code Reviewer}
+{\href{https://practicum.yandex.com/}
+{Yandex Practicum}}
+{Reviewing students’ code in JavaScript, Express, and MongoDB}{Part-time contracting job}
 
 %\textcolor{softcol}{\hrule}
 
 %
-\cvevent{2011 / 11}{Project Management Simulation Training}{Getoq Consulting}{Performed a two-day project simulation from management perspective}{Topics included customer contracts, change management, controlling, operational tasks}
-
-%\textcolor{softcol}{\hrule}
-
-
-%
-\cvevent{2010 - 2011}{Student Assistant / Programmer}{otulea.uni-bremen.de}{Realized an online diagnosis platform for workforce literacy development (Flex)}{Modeled software design, implemented various prototypes, conducted usability tests}
-
+\cvevent{2015–2019}
+{Software Engineer}
+{\href{https://hwdtech.com/}{Hello World! Technologies}}
+{Working on a lot of outsourcing projects for clients around the world}
+{Technologies used: JavaScript, Flow, React, Express.js, MongoDB, PHP, Python}
 
 %---------------------------------------------------------------------------------------
 %	EDUCATION SECTION
 %--------------------------------------------------------------------------------------
+\vspace{-18pt}
 \cvsection{Education}
 
-\cvevent{2015 / 07}{Graduated as M.Sc. Digital Media}{University of Bremen}{Master Thesis: Semi Automated Scoring in Technology Based Assessment}{Developed and evaluated an algorithm for semi automated scoring of spreadsheet data}
+%
+\cvevent{2016–2018}
+{Master of Science in Education}
+{Omsk State Pedagogical University}
+{Master’s Thesis: Design of CLIL courses for Computer Science students}
+{Classes specialized in English and German language education and in intercultural communication}
 
 %\textcolor{softcol}{\hrule}
 
 %
-\cvevent{2012 - 2013}{Master Project - PrIMA}{University of Bremen}{Co-Invented a touch table application for medical support, co-developed software (Java) }{Formed a scrum team, mainted project dev server (Debian), surveyed target audience}
+\cvevent{2012–2016}
+{Bachelor of Science in Computer Engineering}
+{Omsk State University}
+{Bachelor’s Thesis: Implementation of web API wrapper for proprietary integrated library system}
+{Mastered computer science and software engeneering courses}
+
+%---------------------------------------------------------------------------------------
+%	PROJECTS SECTION
+%--------------------------------------------------------------------------------------
+\vspace{-18pt}
+\cvsection{Projects}
+\vspace{-6pt}
+
+%
+\cvevent{2020}
+{Energy Retailer Website}
+{NDA}
+{Working in a scrum-like environment on a frontend part of the huge website with the micro-frontend architecture.
+  Main responsibilities: new features implementantion, migration from the AEM to React-based apps, maintaining JavaScript infrastructure}
+{Technologies: TypeScript, React, Redux, Jenkins, AWS, Webpack}
 
 %\textcolor{softcol}{\hrule}
 
 %
-\cvevent{2012 - 2015}{Master Studies Digital Media}{University of Bremen}{Inter-cultural classes in English, covering special topics in computer science and design}{Professionalized in research methods, software development and e-assessment}
+\cvevent{2017–2019}
+{Review Platform for Blockchain-related projects}
+{NDA}
+{Feature-rich SPA with a lot of content.
+  I've started to build the project from scratch with raising the team size from 2 engineers to more than 10.
+  My participation: all sides of the project, including backend and frontend development,
+  deployment, blockchain integration, hot-fixing security problems, and building the proper way of communication
+  between design, product, and development teams}
+{Technologies: React, Redux, Express, Blockchain, Ethereum, Bitcoin, Azure Web Apps, Azure Functions}
 
 %\textcolor{softcol}{\hrule}
 
 %
-\cvevent{2009 - 2010}{Semester Abroad}{University of Melbourne}{Mastered six months of study and trans-cultural experience in Melbourne, Australia}{Finished machine programming, information visualization, professional essay writing}
+\cvevent{2016–2017}
+{Interactive Educational Website for Children}
+{NDA}
+{An educational single page web application for children in their early childhood.
+  The main features are games, lessons, and songs.
+  Thus the project included a lot of rich media content to work with including video, audio, and canvas.}
+{Technologies: React, Redux, JSS, Webpack, Recompose, Gitlab CI}
 
+%\textcolor{softcol}{\hrule}
+
+%
+\cvevent{2015–2016}
+{Programming Challenges Website}
+{\href{https://open.kattis.com/}{Kattis}}
+{Maintenance for the whole website infrastructure, from the frontend written in PHP and jQuery
+  to the PHP backend and Python scripts used to manage deployments, migrations, and other operations}
+{Technologies: PHP, Python, JavaScript, jQuery, HTML5, CSS3, PostgreSQL, Bootstrap}
 
 %--------------------------------------------------------------------------------------------------
 %	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth) 
@@ -402,7 +448,7 @@ Digital media graduate with project experience in the field of technology based 
 
 \null
 \vspace*{\fill}
-\hspace{-0.25\linewidth}\colorbox{white}{\makebox[1.5\linewidth][c]{\mystrut  \textnormal{\textcolor{sectcol}{www.jankuester.com} $\cdot$ \textcolor{sectcol}{github.com/jankapunkt}}}}
+\hspace{-0.25\linewidth}\colorbox{white}{\makebox[1.5\linewidth][c]{\mystrut  \textnormal{\textcolor{sectcol}{\href{https://github.com/102}{github.com/102}}}}}
 
 
 
