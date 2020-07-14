@@ -1,0 +1,11 @@
+{
+  "name": "readme",
+  "version": "1.0.0",
+  "main": "generate.js",
+  "repository": "git@github.com:102/102.git",
+  "author": "Roman Gusev <rgusev2@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node generate.js"
+  }
+}

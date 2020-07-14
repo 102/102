@@ -1,12 +1,8 @@
-name: generate
+name: Generate README
 
 on:
   schedule:
-    - cron: "46 * * * *"
-
-runs:
-  using: "node12"
-  main: "generate.js"
+    - cron: "15 * * * *"
 
 jobs:
   build:
@@ -16,13 +12,19 @@ jobs:
         uses: actions/checkout@master
         with:
           ref: master
+
+      - name: build
+        with:
+          node-version: "12.x"
+        run: npm start
+
       - name: push
         uses: github-actions-x/commit@v2.6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: "master"
-          commit-message: "publish"
+          commit-message: "Update README.md"
           force-add: "true"
-          files: a.txt b.txt c.txt dirA/ dirB/ dirC/a.txt
-          name: commiter name
-          email: my.github@email.com
+          files: README.md
+          name: GitHub Action
+          email: github-action@example.com
