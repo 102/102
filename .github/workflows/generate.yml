@@ -2,7 +2,7 @@ name: Generate README
 
 on:
   schedule:
-    - cron: "15 * * * *"
+    - cron: "16 * * * *"
 
 jobs:
   build:
