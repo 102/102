@@ -3,7 +3,7 @@ name: Build README
 on:
   workflow_dispatch:
   schedule:
-    - cron: "20 * * * *"
+    - cron: "0 * * * *"
 
 jobs:
   build:
@@ -14,13 +14,11 @@ jobs:
         with:
           ref: master
 
-      - name: setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
-
       - name: build
-        run: npm run build
+        run: |
+          echo "# Hey there 👋
+
+          I don’t really know what to add here, so here is the random number that will be updated once an hour: **$(shuf -i 0-100 -n 1)**" > README.md
 
       - name: commit and push
         run: |-
