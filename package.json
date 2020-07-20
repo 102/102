@@ -6,6 +6,6 @@
   "author": "Roman Gusev <rgusev2@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node generate.js"
+    "build": "node build.js"
   }
 }

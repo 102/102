@@ -1,0 +1,31 @@
+name: Build README
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+        with:
+          ref: master
+
+      - name: setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
+      - name: build
+        run: npm run build
+
+      - name: commit and push
+        run: |-
+          git config --global user.email "readme@example.com"
+          git config --global user.name "README.md auto updater"
+          git add --all
+          git commit -m "Update README.md" || exit 0
+          git push
