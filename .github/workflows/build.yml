@@ -3,7 +3,7 @@ name: Build README
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 0 * * *"
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
         run: |
           echo "# Hey there 👋
 
-          I don’t really know what to add here, so here is the random number that will be updated once an hour: **$(shuf -i 0-100 -n 1)**" > README.md
+          I don’t really know what to add here, so here is the random number that will be updated once a day: **$(shuf -i 0-100 -n 1)**" > README.md
 
       - name: commit and push
         run: |-
