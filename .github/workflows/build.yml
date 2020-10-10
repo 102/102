@@ -15,10 +15,7 @@ jobs:
           ref: master
 
       - name: build
-        run: |
-          echo "# Hey there 👋
-
-          I don’t really know what to add here, so here is the random number that will be updated once a day: **$(shuf -i 0-100 -n 1)**" > README.md
+        run: cat README.template.md | sed "s/%randomNumber%/$(shuf -i 0-100 -n 1)/" > README.md
 
       - name: commit and push
         run: |-
