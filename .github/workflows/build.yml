@@ -12,7 +12,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
         with:
-          ref: master
+          ref: main
 
       - name: build
         run: cat README.template.md | sed "s/%randomNumber%/$(shuf -i 0-100 -n 1)/" > README.md
